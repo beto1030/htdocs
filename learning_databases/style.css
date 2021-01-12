@@ -1,0 +1,65 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header {
+    margin-top: 10px;
+    margin-bottom: 5%;
+}
+nav > ul > h2 {
+    padding-right: 30%; 
+}
+nav > ul{
+    display: flex;
+    justify-content: flex-end;
+    #border: solid red 1px;
+    list-style: none;
+}
+nav > ul > li {
+    #border: solid blue 1px;
+    width: 10%;
+    margin-left: 10px;
+}
+nav > ul > li > a {
+    display: block;
+    #border: solid green 1px;
+    width: 100%;
+    text-decoration: none;
+    padding: 10px 0px;
+}
+
+main > .intro {
+   text-align: center;
+   margin-bottom: 5%;
+}
+
+main > .categories > h2 {
+   text-align: center; 
+   margin-bottom: 5%;
+}
+
+main > .categories > .items {
+   #border: solid red 1px;
+   display: flex; 
+   justify-content: space-between;
+   text-align: center;
+}
+main > .categories > .items > div {
+   #border: solid blue 1px; 
+   width: 30%;
+}
+
+/* signup.php styling */
+main > .signup-form > h2 {
+    padding-bottom: 20px; 
+}
+main > .signup-form {
+    text-align: center;
+}
+main > .signup-form > form > input {
+    width: 30%;
+}
+main > .signup-form > form > button {
+    width: 15%;
+}

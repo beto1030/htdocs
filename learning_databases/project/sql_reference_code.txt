@@ -1,0 +1,44 @@
+// how to create a new table in SQL
+create table posts (
+	id int(11) not null PRIMARY KEY AUTO_INCREMENT,
+    subject varchar(128) not null,
+    content varchar(1000) not null,
+    date datetime not null
+);
+
+// how to insert data into your table in SQL
+insert into posts (subject, content, date) VALUES ('This is the subject', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry', '2021-11-14 16:38:01');
+
+// how to update your table
+UPDATE posts
+SET subject='This is a test', content='This is the content'
+WHERE id='1'
+
+// how to delete a post from your database tabled named posts
+DELETE FROM posts
+WHERE id='1'
+
+// how to change the order of the data in the table based on the id to be in asending order (example: 1,2,3,4,5)
+SELECT * FROM posts ORDER BY id ASC
+
+// how to change the order of the data in the table based on the id to be in desending order (example: 5,4,3,2,1)
+SELECT * FROM posts ORDER BY id DESC
+
+// ordering it alphebetically from A to Z
+SELECT * FROM posts ORDER BY subject ASC
+
+// ordering it alphebetically from Z to A
+SELECT * FROM posts ORDER BY subject DESC 
+
+//creating a table for users
+CREATE TABLE users (
+    user_id INT(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    user_first VARCHAR(256) NOT NULL,
+    user_last VARCHAR(256) NOT NULL,
+    user_email VARCHAR(256) NOT NULL,
+    user_uid VARCHAR(256) NOT NULL,
+    user_pwd VARCHAR(256) NOT NULL 
+)
+
+//inserting new a new user into the table
+INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd) VALUES ('Alberto', 'Alvarado', 'learning_SQL@gmail.com', 'Admin', 'password');
