@@ -2,10 +2,11 @@
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
-$dbName = "loginsystem";
+$dbName = "user_accounts";
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
 if(!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+   echo "wtf";
+   die("Connection failed: " . mysqli_connect_error());
 }

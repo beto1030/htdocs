@@ -1,12 +1,39 @@
 <?php
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "loginsystem";
+if (isset($_POST['submit'])) {
+       $fname = $_POST['fname'];
+       $lname = $_POST['lname'];
+       $email = $_POST['email'];
+       $uid = $_POST['uid'];
+       $pwd = $_POST['pwd'];
+       $pwdRepeat = $_POST['pwdRepeat'];
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+       require_once 'dbh.inc.php';
+       require_once 'functions.inc.php';
+    
+       if (emptyInputSignup($fname, $lname, $email, $uid, $pwd, $pwdRepeat) !== false) {
+            header('Location: ../signup.php?error=emptyinput');
+            exit();
+       }
+       if (invalidUid($uid) !== false) {
+            header('Location: ../signup.php?error=invaliduid');
+            exit();
+       }
+       if (invalidEmail($email) !== false) {
+            header('Location: ../signup.php?error=invalidemail');
+            exit();
+       }
+       if (pwdMatch($pwd, $pwdRepeat) !== false) {
+            header('Location: ../signup.php?error=passwordsDoNotMatch');
+            exit();
+       }
+       if (uidExists($conn, $uid, $email) !== false) {
+            header('Location: ../signup.php?error=uidTaken');
+            exit();
+       }
+    
+       createUser($conn, $fname, $lname, $email, $uid, $pwd);
 
-if(!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
+} else {
+    header('Location: ../signup.php');
+    exit();
+   }
