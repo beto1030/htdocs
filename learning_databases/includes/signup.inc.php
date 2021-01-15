@@ -23,11 +23,11 @@ if (isset($_POST['submit'])) {
             exit();
        }
        if (pwdMatch($pwd, $pwdRepeat) !== false) {
-            header('Location: ../signup.php?error=passwordsDoNotMatch');
+            header('Location: ../signup.php?error=passwordsdonotmatch');
             exit();
        }
-       if (uidExists($conn, $uid, $email) !== false) {
-            header('Location: ../signup.php?error=uidTaken');
+       if (uidExists($conn, $email, $uid) !== false) {
+            header('Location: ../signup.php?error=uidtaken');
             exit();
        }
     
