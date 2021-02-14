@@ -1,3 +1,6 @@
+<?php
+    session_start();// this line makes it so that in every single page on this website we will now have a session started on each page meaning the user is going to be logged in on every page
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,8 +17,16 @@
                         <h2>Coding w/ Beto</h2>
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about_me.php">About Me</a></li>
-                        <li><a href="signup.php">Sign Up</a></li>
-                        <li><a href="login.php">Login</a></li>
+                        <?php
+                            if (isset($_SESSION['useruid'])) {
+                                 echo '<li><a href="profile.php">My Profile</a></li>';
+                                 echo '<li><a href="includes/logout.inc.php">Log Out</a></li>';
+
+                            }else {
+                                echo '<li><a href="signup.php">Sign Up</a></li>'; 
+                                echo '<li><a href="login.php">Login</a></li>'; 
+                             }
+                        ?>
                     </ul>
                 </nav>
             </header>

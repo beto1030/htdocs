@@ -3,6 +3,11 @@
             ?>
             <main>
                 <section class="intro">
+                   <?php
+                        if (isset($_SESSION['useruid'])) {
+                             echo '<p>Hello there '.$_SESSION['useruid'].'</p>';
+                        }
+                    ?>
                     <h1>This is an introduction</h1>
                     <p>Here is an important paragraph that explains the purpose of the website</p>
                 </section>

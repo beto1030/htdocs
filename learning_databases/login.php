@@ -12,5 +12,15 @@
                 </section>
             </main>
             <?php
+                 if (isset($_GET['error'])) {
+                     if($_GET['error'] == 'emptyinput') {
+                       echo '<p>Fill in all fields!</p>'; 
+                     }
+                     elseif ($_GET['error'] == 'wronglogin') {
+                        echo '<p>Invalid Username/Password!</p>';   
+                      }
+                 }
+            ?>
+            <?php
                 include_once 'footer.php';
             ?>
